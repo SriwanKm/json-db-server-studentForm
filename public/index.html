@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON Server AJAX Project</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+<h1>JSON Server AJAX Project</h1>
+<div id="message" class="msg"></div>
+<!--<div id="display" class="btn hide">Display Data</div>-->
+<!--<div id="PageInformation"></div>-->
+<div id="prev" class="btn">Previous</div>
+<div id="next" class="btn">Next</div>
+<form id="studentForm">
+
+    <input type="text" name="firstName" placeholder="John">
+
+    <input type="text" name="lastName" placeholder="Lee">
+
+    <input type="text" name="school" placeholder="UMASS Boston">
+
+    <input type="submit" name="Send Data">
+
+</form>
+
+<input type="text" name="search">
+
+<button class="btn" id="search">Search</button>
+
+
+<div id="output"></div>
+
+<textarea id="comments"></textarea>
+<br>
+<button class="btn" id="addComment">Add Comment</button>
+<br>
+
+<script>
+    // var display = document.querySelector('#display');
+
+    const message = document.getElementById('message');
+
+    const submit = document.querySelector('#submit');
+
+    const output = document.getElementById('output');
+
+    let currentId = 1;
+
+    document.querySelector('#next').addEventListener('click', function () {
+
+        currentId++;
+        loadPage();
+    })
+    document.querySelector('#prev').addEventListener('click', function () {
+
+        currentId--;
+        loadPage();
+    })
+
+    document.querySelector('#studentForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        let firstName = document.querySelector('input[name="firstName"]').value;
+        let lastName = document.querySelector('input[name="lastName"]').value;
+        let school = document.querySelector('input[name="school"]').value;
+        let data = 'firstName=' + firstName + '&lastName=' + lastName + '&school=' + school;
+        const xhr = new XMLHttpRequest();
+        if (firstName && lastName && school) {
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    message.innerHTML = xhr.response;
+                    console.log(JSON.parse(xhr.response))
+                }
+            }
+            xhr.open('POST', 'http://localhost:3000/posts', true)
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+            xhr.send(data)
+        }
+        document.querySelector('input[name="firstName"]').value = null
+        document.querySelector('input[name="lastName"]').value = null
+        document.querySelector('input[name="school"]').value = null
+    })
+
+    document.querySelector('#search').addEventListener('click', function () {
+        output.innerHTML = ''
+        let search = document.querySelector('input[name="search"]').value;
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                var myObj = JSON.parse
+                (xhr.response);
+                console.log(myObj
+                )
+                for (var x = 0; x < myObj.length; x++) {
+                    output.innerHTML += 'Name: ' +
+                        myObj[x].firstName + ' ' + myObj[x].lastName + '</b> : ' +
+                        myObj[x].id + '<br>' + 'School: ' + myObj[x].school + '<br>';
+                }
+            }
+        }
+        xhr.open('GET', 'http://localhost:3000/posts?q=' + search,
+            true)
+        xhr.send()
+    })
+
+    document.querySelector('#addComment').addEventListener('click', function () {
+
+        var comments =
+            document.getElementById('comments').value
+        var data = 'postId=' + currentId + '&body=' + comments;
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                var myObj = JSON.parse
+                (xhr.response
+                )
+                output.innerHTML += '<b>' + myObj.id + '</b> : ' +
+                    myObj.body + '<br>';
+            }
+        }
+        xhr.open('POST', 'http://localhost:3000/comments', true)
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+        xhr.send(data)
+    })
+
+
+    /*display.addEventListener('click',function(){
+    makeRequest('http://localhost:3000/posts', 'Get', {}) })
+    Submit.addEventListener('click',function(){
+    makeRequest('http://localhost:3000/posts', 'Post', 'firstName=Klea&lastName=Rumbullaku&School=BHCC&Message=Hellooo')}) */
+
+    function loadPage() {
+        output.innerHTML = ''
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                var myObj = JSON.parse(xhr.response);
+                for (var key in myObj[0]) {
+                    output.innerHTML += '<b>' + key + '</b> : ' + myObj[0][key] + '<br>';
+                }
+            }
+        }
+        xhr.open('GET', 'http://localhost:3000/posts?id=' + currentId, true)
+        xhr.send()
+    }
+
+
+    function makeGet(url,) {
+        var xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function () {
+
+            if (xhr.readyState == 4) {
+
+                message.innerHTML = xhr.response;
+
+                console.log(JSON.parse(xhr.response))
+            }
+        }
+        xhr.open('GET', url, true)
+        xhr.send()
+    }
+
+    function makePost(url, data) {
+
+        var xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function () {
+
+            if (xhr.readyState == 4) {
+
+                message.innerHTML = xhr.response;
+
+                console.log(JSON.parse(xhr.response))
+
+
+            }
+        }
+        xhr.open('POST', url, true)
+        xhr.send(data)
+    }
+
+
+    /* function makeRequest(url, requestType, data) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function(){
+    if(xhr.readyState==4) {
+    message.innerHTML = xhr.response;
+    console.log(JSON.parse(xhr.response))
+
+    }}
+    xhr.open(requestType,url,true)
+    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+    xhr.send(data)
+    }
+    function makeRequest(url, requestType, data) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function(){
+    if(xhr.readyState==4) {
+    message.innerHTML = xhr.response;
+    console.log(JSON.parse(xhr.response))
+    }}
+    xhr.open(requestType,url,true)
+    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+    xhr.send(data)
+    } */
+
+
+</script>
+</body>
+</html>

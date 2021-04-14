@@ -1,0 +1,84 @@
+{
+  "posts": [
+    {
+      "firstName": "Sriwan",
+      "lastName": "Khaomuang",
+      "School": "BHCC",
+      "Message": "Welcome",
+      "id": 1
+    },
+    {
+      "firstName": "Kookai",
+      "lastName": "Khao",
+      "School": "BHCC",
+      "Message": "Welcome",
+      "id": 2
+    },
+    {
+      "firstName": "Ben",
+      "lastName": "Durian",
+      "School": "BHCC",
+      "Message": "Welcome",
+      "id": 3
+    },
+    {
+      "firstName": "Kuka",
+      "lastName": "Malo",
+      "School": "BHCC",
+      "Message": "Welcome",
+      "id": 4
+    },
+    {
+      "firstName": "Jason",
+      "lastName": "Guru",
+      "School": "BHCC",
+      "Message": "Welcome",
+      "id": 5
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "school": "",
+      "id": 6
+    },
+    {
+      "firstName": "jk",
+      "lastName": "rolling",
+      "school": "CUNY",
+      "id": 7
+    },
+    {
+      "firstName": "Sam",
+      "lastName": "Yo",
+      "school": "BHCC",
+      "id": 8
+    },
+    {
+      "firstName": "Kakao",
+      "lastName": "Bao",
+      "school": "CUNY",
+      "id": 9
+    },
+    {
+      "firstName": "Sub",
+      "lastName": "Bao",
+      "school": "CUNY",
+      "id": 10
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    },
+    {
+      "postId": "1",
+      "body": "hello",
+      "id": 2
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

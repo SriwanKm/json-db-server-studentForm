@@ -1,0 +1,10 @@
+.btn {
+    border: 1px solid green;
+    padding: 5px;
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    font-family: sans-serif;
+    color: cornflowerblue;
+    background-color: beige;
+}
