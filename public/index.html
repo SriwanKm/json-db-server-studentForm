@@ -61,7 +61,7 @@
 
     document.querySelector('#studentForm').addEventListener('submit', function (e) {
         e.preventDefault();
-
+        message.innerHTML = ''
         let firstName = document.querySelector('input[name="firstName"]').value;
         let lastName = document.querySelector('input[name="lastName"]').value;
         let school = document.querySelector('input[name="school"]').value;
@@ -88,20 +88,15 @@
         let search = document.querySelector('input[name="search"]').value;
         const xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4) {
-                var myObj = JSON.parse
-                (xhr.response);
-                console.log(myObj
-                )
-                for (var x = 0; x < myObj.length; x++) {
-                    output.innerHTML += 'Name: ' +
-                        myObj[x].firstName + ' ' + myObj[x].lastName + '</b> : ' +
-                        myObj[x].id + '<br>' + 'School: ' + myObj[x].school + '<br>';
+            if (xhr.readyState === 4) {
+                let myObj = JSON.parse(xhr.response);
+                console.log(myObj)
+                for (let x = 0; x < myObj.length; x++) {
+                    output.innerHTML += '<b>ID:</b> ' + myObj[x].id + '<br><b>Name:</b> ' + myObj[x].firstName + ' ' + myObj[x].lastName + '<br><b>School:</b> ' + myObj[x].school + '<br><br>';
                 }
             }
         }
-        xhr.open('GET', 'http://localhost:3000/posts?q=' + search,
-            true)
+        xhr.open('GET', 'http://localhost:3000/posts?q=' + search, true)
         xhr.send()
     })
 
@@ -112,7 +107,7 @@
         var data = 'postId=' + currentId + '&body=' + comments;
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4) {
+            if (xhr.readyState === 4) {
                 var myObj = JSON.parse
                 (xhr.response
                 )
