@@ -3,7 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>JSON Server AJAX Project</title>
-    <link rel="stylesheet" href="stylesheet.css">
+    <style>
+        body {
+            background-color: #fff3d3;
+        }
+
+        .btn {
+            border: 1px solid green;
+            padding: 5px;
+            display: inline-block;
+            width: 100px;
+            text-align: center;
+            font-family: sans-serif;
+            color: cornflowerblue;
+            background-color: beige;
+            cursor: pointer;
+            margin: 2px 10px 18px 0px;
+        }
+    </style>
 </head>
 
 <body>
@@ -15,27 +32,25 @@
 <div id="next" class="btn">Next</div>
 <form id="studentForm">
 
-    <input type="text" name="firstName" placeholder="John">
+    <input type="text" name="firstName" placeholder="John"><br>
 
-    <input type="text" name="lastName" placeholder="Lee">
+    <input type="text" name="lastName" placeholder="Lee"><br>
 
-    <input type="text" name="school" placeholder="CUNY">
+    <input type="text" name="school" placeholder="CUNY"><br>
 
-    <input type="submit" name="Send Data">
+    <input type="submit" name="Send Data" class="btn"><br>
 
 </form>
 
-<input type="text" name="search">
+<input type="text" name="search"><br>
 
-<button class="btn" id="search">Search</button>
+<button class="btn" id="search">Search</button><br>
 
+<textarea id="comments" placeholder="Comment goes here :)"></textarea><br>
+
+<button class="btn" id="addComment">Add Comment</button><br>
 
 <div id="output"></div>
-
-<textarea id="comments"></textarea>
-<br>
-<button class="btn" id="addComment">Add Comment</button>
-<br>
 
 <script>
     // var display = document.querySelector('#display');
