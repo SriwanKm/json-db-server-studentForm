@@ -1,4 +1,4 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -18,7 +18,7 @@
             color: cornflowerblue;
             background-color: beige;
             cursor: pointer;
-            margin: 2px 10px 18px 0px;
+            margin: 2px 10px 18px 0;
         }
     </style>
 </head>
@@ -153,39 +153,38 @@
     }
 
 
-    function makeGet(url) {
-        const xhr = new XMLHttpRequest();
-
-        xhr.onreadystatechange = function () {
-
-            if (xhr.readyState === 4) {
-
-                message.innerHTML = xhr.response;
-
-                console.log(JSON.parse(xhr.response))
-            }
-        }
-        xhr.open('GET', url, true)
-        xhr.send()
-    }
-
-    function makePost(url, data) {
-
-        const xhr = new XMLHttpRequest();
-
-        xhr.onreadystatechange = function () {
-
-            if (xhr.readyState === 4) {
-
-                message.innerHTML = xhr.response;
-
-                console.log(JSON.parse(xhr.response))
-            }
-        }
-        xhr.open('POST', url, true)
-        xhr.send(data)
-    }
-
+    // function makeGet(url) {
+    //     const xhr = new XMLHttpRequest();
+    //
+    //     xhr.onreadystatechange = function () {
+    //
+    //         if (xhr.readyState === 4) {
+    //
+    //             message.innerHTML = xhr.response;
+    //
+    //             console.log(JSON.parse(xhr.response))
+    //         }
+    //     }
+    //     xhr.open('GET', url, true)
+    //     xhr.send()
+    // }
+    //
+    // function makePost(url, data) {
+    //
+    //     const xhr = new XMLHttpRequest();
+    //
+    //     xhr.onreadystatechange = function () {
+    //
+    //         if (xhr.readyState === 4) {
+    //
+    //             message.innerHTML = xhr.response;
+    //
+    //             console.log(JSON.parse(xhr.response))
+    //         }
+    //     }
+    //     xhr.open('POST', url, true)
+    //     xhr.send(data)
+    // }
 
     /* function makeRequest(url, requestType, data) {
     var xhr = new XMLHttpRequest();

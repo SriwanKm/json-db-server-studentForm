@@ -17,6 +17,12 @@
       "lastName": "Suk",
       "school": "BHCC",
       "id": 3
+    },
+    {
+      "firstName": "Yoo",
+      "lastName": "Thangthong",
+      "school": "CUNY",
+      "id": 4
     }
   ],
   "comments": [
@@ -34,6 +40,11 @@
       "postId": "3",
       "body": "Howdy!",
       "id": 3
+    },
+    {
+      "postId": "4",
+      "body": "Hola..",
+      "id": 4
     }
   ],
   "profile": {
