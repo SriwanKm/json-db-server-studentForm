@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,7 +19,7 @@
 
     <input type="text" name="lastName" placeholder="Lee">
 
-    <input type="text" name="school" placeholder="UMASS Boston">
+    <input type="text" name="school" placeholder="CUNY">
 
     <input type="submit" name="Send Data">
 
@@ -62,25 +62,42 @@
     document.querySelector('#studentForm').addEventListener('submit', function (e) {
         e.preventDefault();
         message.innerHTML = ''
-        let firstName = document.querySelector('input[name="firstName"]').value;
-        let lastName = document.querySelector('input[name="lastName"]').value;
-        let school = document.querySelector('input[name="school"]').value;
-        let data = 'firstName=' + firstName + '&lastName=' + lastName + '&school=' + school;
+        let firstName = document.querySelector('input[name="firstName"]')
+        let lastName = document.querySelector('input[name="lastName"]')
+        let school = document.querySelector('input[name="school"]')
+        let data = 'firstName=' + firstName.value + '&lastName=' + lastName.value + '&school=' + school.value;
         const xhr = new XMLHttpRequest();
-        if (firstName && lastName && school) {
+        if (firstName.value && lastName.value && school.value) {
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4) {
                     message.innerHTML = xhr.response;
-                    console.log(JSON.parse(xhr.response))
                 }
             }
             xhr.open('POST', 'http://localhost:3000/posts', true)
             xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
             xhr.send(data)
         }
-        document.querySelector('input[name="firstName"]').value = null
-        document.querySelector('input[name="lastName"]').value = null
-        document.querySelector('input[name="school"]').value = null
+        firstName.value = null
+        lastName.value = null
+        school.value = null
+    })
+
+    document.querySelector('#addComment').addEventListener('click', function () {
+        let comments = document.getElementById('comments')
+        let data = 'postId=' + currentId + '&body=' + comments.value;
+        const xhr = new XMLHttpRequest();
+        if (comments.value) {
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    message.innerHTML = xhr.response
+                    console.log(JSON.parse(xhr.response))
+                }
+            }
+            xhr.open('POST', 'http://localhost:3000/comments', true)
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+            xhr.send(data)
+        }
+        comments.value = null
     })
 
     document.querySelector('#search').addEventListener('click', function () {
@@ -100,39 +117,18 @@
         xhr.send()
     })
 
-    document.querySelector('#addComment').addEventListener('click', function () {
-
-        var comments =
-            document.getElementById('comments').value
-        var data = 'postId=' + currentId + '&body=' + comments;
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                var myObj = JSON.parse
-                (xhr.response
-                )
-                output.innerHTML += '<b>' + myObj.id + '</b> : ' +
-                    myObj.body + '<br>';
-            }
-        }
-        xhr.open('POST', 'http://localhost:3000/comments', true)
-        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-        xhr.send(data)
-    })
-
-
     /*display.addEventListener('click',function(){
     makeRequest('http://localhost:3000/posts', 'Get', {}) })
     Submit.addEventListener('click',function(){
-    makeRequest('http://localhost:3000/posts', 'Post', 'firstName=Klea&lastName=Rumbullaku&School=BHCC&Message=Hellooo')}) */
+    makeRequest('http://localhost:3000/posts', 'Post', 'firstName=Sriwan&lastName=Khao&School=BHCC&Message=Yo')}) */
 
     function loadPage() {
         output.innerHTML = ''
-        var xhr = new XMLHttpRequest();
+        const xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4) {
-                var myObj = JSON.parse(xhr.response);
-                for (var key in myObj[0]) {
+            if (xhr.readyState === 4) {
+                let myObj = JSON.parse(xhr.response);
+                for (let key in myObj[0]) {
                     output.innerHTML += '<b>' + key + '</b> : ' + myObj[0][key] + '<br>';
                 }
             }
@@ -142,12 +138,12 @@
     }
 
 
-    function makeGet(url,) {
-        var xhr = new XMLHttpRequest();
+    function makeGet(url) {
+        const xhr = new XMLHttpRequest();
 
         xhr.onreadystatechange = function () {
 
-            if (xhr.readyState == 4) {
+            if (xhr.readyState === 4) {
 
                 message.innerHTML = xhr.response;
 
@@ -160,17 +156,15 @@
 
     function makePost(url, data) {
 
-        var xhr = new XMLHttpRequest();
+        const xhr = new XMLHttpRequest();
 
         xhr.onreadystatechange = function () {
 
-            if (xhr.readyState == 4) {
+            if (xhr.readyState === 4) {
 
                 message.innerHTML = xhr.response;
 
                 console.log(JSON.parse(xhr.response))
-
-
             }
         }
         xhr.open('POST', url, true)

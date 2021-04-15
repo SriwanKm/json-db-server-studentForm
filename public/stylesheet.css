@@ -7,4 +7,6 @@
     font-family: sans-serif;
     color: cornflowerblue;
     background-color: beige;
+    cursor: pointer;
+    margin: 10px 10px 10px 0px;
 }

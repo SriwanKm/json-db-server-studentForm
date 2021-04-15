@@ -3,124 +3,37 @@
     {
       "firstName": "Sriwan",
       "lastName": "Khaomuang",
-      "School": "BHCC",
-      "Message": "Welcome",
+      "school": "BHCC",
       "id": 1
     },
     {
-      "firstName": "Kookai",
-      "lastName": "Khao",
-      "School": "BHCC",
-      "Message": "Welcome",
+      "firstName": "Sam",
+      "lastName": "Mike",
+      "school": "CUNY",
       "id": 2
     },
     {
-      "firstName": "Ben",
-      "lastName": "Durian",
-      "School": "BHCC",
-      "Message": "Welcome",
-      "id": 3
-    },
-    {
-      "firstName": "Kuka",
-      "lastName": "Malo",
-      "School": "BHCC",
-      "Message": "Welcome",
-      "id": 4
-    },
-    {
-      "firstName": "Jason",
-      "lastName": "Guru",
-      "School": "BHCC",
-      "Message": "Welcome",
-      "id": 5
-    },
-    {
-      "firstName": "",
-      "lastName": "",
-      "school": "",
-      "id": 6
-    },
-    {
-      "firstName": "jk",
-      "lastName": "rolling",
-      "school": "CUNY",
-      "id": 7
-    },
-    {
-      "firstName": "Sam",
-      "lastName": "Yo",
+      "firstName": "Khon",
+      "lastName": "Suk",
       "school": "BHCC",
-      "id": 8
-    },
-    {
-      "firstName": "Kakao",
-      "lastName": "Bao",
-      "school": "CUNY",
-      "id": 9
-    },
-    {
-      "firstName": "Sub",
-      "lastName": "Bao",
-      "school": "CUNY",
-      "id": 10
-    },
-    {
-      "firstName": "lolo",
-      "lastName": "Yo",
-      "school": "CUNY",
-      "id": 11
-    },
-    {
-      "firstName": "Love",
-      "lastName": "Rosy",
-      "school": "CUNY",
-      "id": 12
-    },
-    {
-      "firstName": "Sam",
-      "lastName": "Bao",
-      "school": "CUNY",
-      "id": 13
-    },
-    {
-      "firstName": "Sub",
-      "lastName": "Thangthong",
-      "school": "CUNY",
-      "id": 14
-    },
-    {
-      "firstName": "Sub",
-      "lastName": "Yo",
-      "school": "CUNY",
-      "id": 15
+      "id": 3
     }
   ],
   "comments": [
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "postId": "1",
+      "body": "Hi, nice to meet ya!",
+      "id": 1
     },
     {
-      "postId": "1",
-      "body": "hello",
+      "postId": "2",
+      "body": "Sam's comment",
       "id": 2
     },
     {
-      "postId": "1",
-      "body": "",
+      "postId": "3",
+      "body": "Howdy!",
       "id": 3
-    },
-    {
-      "postId": "1",
-      "body": "",
-      "id": 4
-    },
-    {
-      "postId": "1",
-      "body": "",
-      "id": 5
     }
   ],
   "profile": {
