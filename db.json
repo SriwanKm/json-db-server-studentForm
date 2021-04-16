@@ -23,6 +23,12 @@
       "lastName": "Thangthong",
       "school": "CUNY",
       "id": 4
+    },
+    {
+      "firstName": "Kapom",
+      "lastName": "Pibul",
+      "school": "UMASS",
+      "id": 5
     }
   ],
   "comments": [
